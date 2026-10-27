@@ -24,9 +24,12 @@ The browser and Minecraft use different DNS routing. Required records:
 | --- | --- | --- |
 | A | `mc.pumpgunstudios.com` | The existing Minecraft server IPv4 address |
 | SRV | `_minecraft._tcp.play.pumpgunstudios.com` | Priority 0, weight 0, port 25565, target `mc.pumpgunstudios.com` |
-| CNAME | `play.pumpgunstudios.com` | `eripum9.github.io` |
+| A | `play.pumpgunstudios.com` | `185.199.108.153` (GitHub Pages) |
 
-Create and verify `mc` and the SRV record before replacing the existing `play` A record with the web CNAME.
+Create and verify `mc` and the SRV record before replacing the existing `play` A record with the GitHub Pages address.
+STRATO's subdomain CNAME control warns that it erases existing DNS/service settings, so this deployment uses
+an A record for web hosting and preserves the separate SRV record. The repository's `CNAME` file identifies
+the web hostname to GitHub Pages; it does not require a DNS CNAME record at STRATO.
 The SRV target must keep resolving directly to the Minecraft server; never point it back at the web hostname.
 If the game server's public IP changes, update the `mc` A record. Players should enter the hostname without
 an explicit port. Minecraft Java 26.3's native `ServerRedirectHandler` was inspected to verify SRV lookup on
