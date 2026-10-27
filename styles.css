@@ -1,0 +1,359 @@
+@font-face {
+  font-family: "Monocraft";
+  src: url("assets/fonts/Monocraft.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  --orange: #ffb833;
+  --burnt: #713700;
+  --burnt-light: #9b4b06;
+  --charcoal: #252c22;
+  --cream: #fff7e4;
+  --page-pad: clamp(1.25rem, 5vw, 5.5rem);
+  font-family: "Monocraft", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background: var(--orange);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100svh;
+  margin: 0;
+  background: var(--orange);
+  color: var(--charcoal);
+  font-family: "Monocraft", monospace;
+  font-size: 1rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: none;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--cream);
+  outline-offset: 4px;
+}
+
+.page-shell {
+  display: flex;
+  min-height: 100svh;
+  flex-direction: column;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 10;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  transform: translateY(-180%);
+  border: 3px solid var(--burnt);
+  background: var(--cream);
+  color: var(--charcoal);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.hero {
+  position: relative;
+  display: flex;
+  min-height: calc(100svh - 3.5rem);
+  flex: 1 0 auto;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--orange);
+}
+
+.scene-stage {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  margin: 0;
+  pointer-events: none;
+}
+
+.scene-art {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: right center;
+}
+
+.hero-copy {
+  position: relative;
+  width: min(56%, 690px);
+  margin-left: var(--page-pad);
+  padding-block: clamp(2rem, 6svh, 5.5rem);
+}
+
+h1,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: clamp(0.65rem, 1.5vw, 1.2rem);
+  color: var(--charcoal);
+  font-size: clamp(5rem, 13vw, 10.6rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+  text-shadow: 4px 5px 0 rgb(113 55 0 / 22%);
+}
+
+.instruction {
+  max-width: 620px;
+  margin-bottom: clamp(1.2rem, 3vw, 2.2rem);
+  color: var(--charcoal);
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  line-height: 1.55;
+}
+
+.desktop-break {
+  display: initial;
+}
+
+.ip-area {
+  width: min(100%, 630px);
+}
+
+.server-address {
+  display: block;
+  width: 100%;
+  min-height: 1.55em;
+  margin: 0 0 1rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--burnt);
+  caret-color: var(--burnt);
+  font-family: "Monocraft", monospace;
+  font-size: clamp(1.1rem, 3.4vw, 2.35rem);
+  font-weight: 750;
+  letter-spacing: -0.035em;
+  line-height: 1.35;
+  outline-offset: 7px;
+  text-align: left;
+  user-select: all;
+  -webkit-user-select: all;
+}
+
+.copy-button {
+  position: relative;
+  min-width: 9.5rem;
+  min-height: 3.4rem;
+  padding: 0.65rem 1.25rem 0.85rem;
+  border: 3px solid #572900;
+  border-radius: 0;
+  background: var(--burnt-light);
+  box-shadow:
+    inset 3px 3px 0 rgb(255 227 161 / 42%),
+    inset -3px -5px 0 rgb(57 25 0 / 45%),
+    4px 5px 0 rgb(76 36 0 / 32%);
+  color: var(--cream);
+  cursor: pointer;
+  font-family: "Monocraft", monospace;
+  font-size: 1rem;
+  font-weight: 750;
+  line-height: 1.25;
+  text-align: center;
+  transition: filter 100ms ease, transform 100ms ease;
+}
+
+.copy-button:hover {
+  filter: brightness(1.12);
+}
+
+.copy-button:active {
+  transform: translate(2px, 2px);
+  box-shadow:
+    inset 3px 3px 0 rgb(255 227 161 / 32%),
+    inset -3px -4px 0 rgb(57 25 0 / 45%),
+    2px 3px 0 rgb(76 36 0 / 32%);
+}
+
+.copy-feedback {
+  min-height: 1.6em;
+  margin: 0.75rem 0 0;
+  color: #4f2907;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.site-footer {
+  display: flex;
+  min-height: 3.5rem;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding: 0.55rem var(--page-pad);
+  color: #4f2907;
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer a {
+  font-weight: 700;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 760px) {
+  :root {
+    --page-pad: clamp(1.15rem, 6vw, 2rem);
+  }
+
+  .page-shell {
+    min-height: 100svh;
+  }
+
+  .hero {
+    min-height: auto;
+    flex: 1 0 auto;
+    flex-direction: column;
+    align-items: stretch;
+    overflow: hidden;
+  }
+
+  .hero-copy {
+    order: -1;
+    z-index: 1;
+    width: auto;
+    margin: 0;
+    padding: clamp(2rem, 7svh, 3.75rem) var(--page-pad) 1rem;
+  }
+
+  h1 {
+    margin-bottom: 0.55rem;
+    font-size: clamp(5rem, 22vw, 7.4rem);
+  }
+
+  .instruction {
+    max-width: 560px;
+    margin-bottom: 1.35rem;
+    font-size: clamp(1.25rem, 5.4vw, 1.65rem);
+    line-height: 1.45;
+  }
+
+  .desktop-break {
+    display: none;
+  }
+
+  .ip-area {
+    width: 100%;
+    max-width: 620px;
+  }
+
+  .server-address {
+    margin-bottom: 0.9rem;
+    font-size: clamp(1.08rem, 5vw, 1.55rem);
+    letter-spacing: -0.045em;
+  }
+
+  .copy-button {
+    min-width: 8.5rem;
+    min-height: 3.25rem;
+  }
+
+  .scene-stage {
+    position: relative;
+    z-index: 0;
+    inset: auto;
+    width: 100%;
+    height: clamp(16rem, 42svh, 26rem);
+    flex: 0 0 auto;
+    overflow: hidden;
+  }
+
+  .scene-art {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+  }
+
+  .site-footer {
+    min-height: 3.75rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.2rem 0.8rem;
+    padding: 0.5rem var(--page-pad) 0.75rem;
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 370px) {
+  .hero-copy {
+    padding-top: 1.6rem;
+  }
+
+  .instruction {
+    font-size: 1.18rem;
+  }
+
+  .server-address {
+    font-size: 1rem;
+    letter-spacing: -0.06em;
+  }
+
+  .copy-feedback {
+    font-size: 0.72rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

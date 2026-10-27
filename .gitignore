@@ -1,0 +1,4 @@
+.qa/
+.work/
+__pycache__/
+*.log

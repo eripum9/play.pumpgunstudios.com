@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#FFB833">
+    <meta name="description" content="Pumpgun SMP — put the server IP into Minecraft Java Edition 26.3.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Pumpgun SMP">
+    <meta property="og:description" content="You are supposed to put the IP into Minecraft.">
+    <meta property="og:url" content="https://play.pumpgunstudios.com/">
+    <meta property="og:image" content="https://play.pumpgunstudios.com/assets/scene-clean.png">
+    <meta property="og:image:alt" content="A Minecraft character in a bright yellow hoodie waving beside a tree and a grass block.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pumpgun SMP">
+    <meta name="twitter:description" content="You are supposed to put the IP into Minecraft.">
+    <meta name="twitter:image" content="https://play.pumpgunstudios.com/assets/scene-clean.png">
+    <title>Pumpgun SMP</title>
+    <link rel="icon" type="image/png" href="assets/server-icon.png">
+    <link rel="preload" href="assets/fonts/Monocraft.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-shell">
+      <main id="main" class="hero">
+        <figure class="scene-stage" aria-hidden="true">
+          <img
+            class="scene-art"
+            src="assets/scene-clean.png"
+            width="1672"
+            height="941"
+            alt=""
+            fetchpriority="high"
+          >
+        </figure>
+
+        <section class="hero-copy" aria-labelledby="page-title">
+          <h1 id="page-title">OOPS</h1>
+          <p class="instruction">You are supposed to<br class="desktop-break"> put the IP into Minecraft</p>
+
+          <div class="ip-area">
+            <label class="visually-hidden" for="server-address">Pumpgun SMP server IP</label>
+            <input id="server-address" class="server-address" type="text" value="play.pumpgunstudios.com" readonly spellcheck="false" autocapitalize="off">
+            <button id="copy-address" class="copy-button" type="button">Copy IP</button>
+            <p id="copy-feedback" class="copy-feedback" role="status" aria-live="polite">Select the IP and press Ctrl+C or ⌘C to copy it manually.</p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>Pumpgun SMP <span aria-hidden="true">·</span> Java Edition 26.3</p>
+        <a href="https://www.youtube.com/@PumpgunYT" target="_blank" rel="noopener noreferrer">Pumpgun on YouTube <span aria-hidden="true">↗</span></a>
+      </footer>
+    </div>
+  </body>
+</html>
