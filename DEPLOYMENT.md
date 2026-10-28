@@ -28,7 +28,10 @@ STRATO's CNAME replacement control was avoided because it warned that it would e
 - Public HTTPS returned HTTP 200 with the OOPS page, using normal certificate validation.
 - Local desktop and 390-pixel mobile layouts were inspected; no mobile horizontal overflow was present.
 - A real copy-button click followed by pasting into a test textarea produced `play.pumpgunstudios.com`.
-- JavaScript syntax and local asset paths were checked. The manual-copy failure path was reviewed, not forced in a test.
+- Automatic copying also completed on the public HTTPS page in Opera (`Copied!` and success feedback).
+- The in-app browser stalled its clipboard request; the three-second fallback selected the address and re-enabled the button.
+  Its isolated clipboard prevented a second live-to-test-textarea paste check. No browser permissions were overridden.
+- JavaScript syntax and local asset paths were checked; the public page was inspected in both browsers.
 
 The original launch artwork remains in `assets/launch.png`; the edited scene is separate.
 Temporary preview and diagnostic files are ignored under `.qa/` and are not published.
