@@ -25,15 +25,26 @@
   }
 
   async function copyAddress() {
+    let clipboardTimer;
+    copyButton.disabled = true;
+    announce("Copying...", "Copying the server IP...");
     try {
       if (!navigator.clipboard || !window.isSecureContext) {
         throw new Error("Clipboard access is unavailable in this context.");
       }
-      await navigator.clipboard.writeText(addressField.value);
+      await Promise.race([
+        navigator.clipboard.writeText(addressField.value),
+        new Promise((_, reject) => {
+          clipboardTimer = window.setTimeout(() => reject(new Error("Clipboard request timed out.")), 3000);
+        })
+      ]);
       announce("Copied!", "IP copied to clipboard.");
     } catch {
       selectAddress();
-      announce("IP selected", "Clipboard access was blocked. The IP is selected; press Ctrl+C or ⌘C to copy it.");
+      announce("IP selected", "Automatic copying did not complete. The IP is selected; press Ctrl+C or ⌘C to copy it.");
+    } finally {
+      window.clearTimeout(clipboardTimer);
+      copyButton.disabled = false;
     }
   }
 
